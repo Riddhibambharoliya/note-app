@@ -1,0 +1,172 @@
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 10%, transparent 70%);
+  animation: moveBackground 10s infinite alternate ease-in-out;
+}
+
+@keyframes moveBackground {
+  0% { transform: translateX(-50px) translateY(-50px); }
+  100% { transform: translateX(50px) translateY(50px); }
+}
+
+.app-container {
+  width: 90%;
+  max-width: 500px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.app-container:hover {
+  transform: scale(1.02);
+}
+
+.header-title {
+  font-size: 26px;
+  font-weight: bold;
+  color: #e91e63;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  animation: fadeIn 1s ease-in;
+}
+
+.heart-icon {
+  color: #e91e63;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.input-container {
+  margin-top: 20px;
+  padding: 20px;
+  background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid #e0e0e0;
+  position: relative;
+  transform: translateY(-10px);
+}
+
+.note-input {
+  width: 90%;
+  padding: 12px;
+  border: 2px solid #e91e63;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+.note-input:focus {
+  border-color: #c2185b;
+  transform: scale(1.05);
+}
+
+.add-button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background: linear-gradient(45deg, #e91e63, #ff4081);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.add-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
+}
+
+.notes-container {
+  margin-top: 20px;
+}
+
+.note-item {
+  padding: 15px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.note-item:hover {
+  transform: translateY(-5px);
+  background-color: #fce4ec;
+}
+
+.note-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.small-heart-icon {
+  color: #e91e63;
+  font-size: 14px;
+  animation: smallPulse 1.5s infinite;
+}
+
+@keyframes smallPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.delete-icon {
+  color: #e91e63;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+.delete-icon:hover {
+  color: #c2185b;
+  transform: scale(1.2);
+}
+
+
+@media (max-width: 480px) {
+  .header-title {
+    font-size: 22px;
+  }
+
+  .note-input, .add-button {
+    font-size: 14px;
+  }
+}
